@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOL NFT 管理中心</title>
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/1984541837269614592/ETJpNUTh_400x400.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.11.1/ethers.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 头部 -->
+        <header>
+            <div class="banner-container">
+                <img src="https://pbs.twimg.com/profile_banners/1984304051371347968/1762156239/1500x500" alt="Banner" class="banner-img">
+            </div>
+            <div class="header-content">
+                <div class="logo-area">
+                    <img src="https://pbs.twimg.com/profile_images/1984541837269614592/ETJpNUTh_400x400.jpg" alt="Logo" class="logo-img">
+                    <h1>BOL NFT 英雄管理</h1>
+                </div>
+                <button id="connectWalletBtn" class="btn btn-primary">连接钱包</button>
+            </div>
+        </header>
+
+        <!-- 主内容区 -->
+        <main>
+            <div class="glass-panel">
+                <div id="wallet-info" class="hidden">
+                    <span class="status-dot"></span> 已连接: <span id="userAddress">0x...</span>
+                </div>
+
+                <!-- 步骤 1: 授权 -->
+                <section class="step-section">
+                    <div class="step-header">
+                        <div class="step-number">01</div>
+                        <h2>授权代币 (Approve)</h2>
+                    </div>
+                    <p class="step-desc">解锁 NFT 需要消耗 BOL 代币，请先授权合约扣除代币。建议授权额度 20000 BOL。</p>
+                    
+                    <div class="info-badges">
+                        <span class="badge" id="bolBalance">余额: - BOL</span>
+                        <span class="badge" id="currentAllowance">已授权: - BOL</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label>授权数量 (BOL)</label>
+                        <input type="number" id="approveAmount" value="20000" placeholder="输入授权数量">
+                    </div>
+                    <button id="approveBtn" class="btn btn-action" disabled>授权代币</button>
+                </section>
+
+                <!-- 步骤 2: 解锁 -->
+                <section class="step-section">
+                    <div class="step-header">
+                        <div class="step-number">02</div>
+                        <h2>解锁 NFT (Unlock)</h2>
+                    </div>
+                    <p class="step-desc">输入您的 NFT Token ID 进行解锁操作。</p>
+                    <div class="input-group">
+                        <label>NFT Token ID</label>
+                        <input type="text" id="unlockTokenId" placeholder="例如: 3322">
+                    </div>
+                    <button id="unlockBtn" class="btn btn-action" disabled>解锁 NFT</button>
+                </section>
+
+                <!-- 步骤 3: 转移 -->
+                <section class="step-section">
+                    <div class="step-header">
+                        <div class="step-number">03</div>
+                        <h2>转移 NFT (Transfer)</h2>
+                    </div>
+                    <p class="step-desc">将解锁后的 NFT 转移到其他地址。</p>
+                    <div class="input-group">
+                        <label>NFT Token ID</label>
+                        <input type="text" id="transferTokenId" placeholder="例如: 3322">
+                    </div>
+                    <div class="input-group">
+                        <label>接收地址 (To Address)</label>
+                        <input type="text" id="transferToAddress" placeholder="0x...">
+                    </div>
+                    <button id="transferBtn" class="btn btn-action" disabled>转移 NFT</button>
+                </section>
+            </div>
+        </main>
+
+        <!-- 状态日志 -->
+        <div id="status-log" class="status-log"></div>
+
+        <!-- 页脚作者信息 -->
+        <footer class="app-footer">
+            <a href="https://x.com/AxinSpark" target="_blank" class="author-link">
+                <img src="https://pbs.twimg.com/profile_images/1950061433796120576/TG_biQfc_400x400.png" alt="AxinSpark Avatar" class="author-avatar">
+                <span class="author-name">Designed by @AxinSpark</span>
+            </a>
+        </footer>
+    </div>
+
+    <!-- 钱包选择模态框 -->
+    <div id="walletModal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h2>选择钱包</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="wallet-list">
+                <div class="wallet-option" data-wallet="metamask">
+                    <div class="wallet-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask">
+                    </div>
+                    <span>MetaMask</span>
+                </div>
+                <div class="wallet-option" data-wallet="okx">
+                    <div class="wallet-icon">
+                        <img src="https://pbs.twimg.com/profile_images/1961251596895227906/o3V4FDLG_400x400.jpg" alt="OKX Wallet">
+                    </div>
+                    <span>OKX Wallet</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

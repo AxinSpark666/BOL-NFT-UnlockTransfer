@@ -1,0 +1,412 @@
+:root {
+    --primary-color: #f3ba2f; /* BSC Yellow-ish or Gold */
+    --accent-color: #ff4757;
+    --bg-color: #0f172a;
+    --glass-bg: rgba(15, 23, 42, 0.85);
+    --text-color: #ffffff;
+    --secondary-text: #94a3b8;
+    --border-color: #334155;
+    --success-color: #2ed573;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    background-image: url('https://pbs.twimg.com/media/G7-XuODagAksjr2?format=jpg&name=large');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+/* Header */
+header {
+    margin-bottom: 20px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+}
+
+.banner-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px; /* Overlap banner */
+    position: relative;
+    z-index: 10;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--bg-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    margin: 0;
+    margin-top: 40px; /* Adjust for overlap */
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #475569 !important;
+    color: #94a3b8 !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 15px rgba(243, 186, 47, 0.4);
+    margin-top: 40px;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(243, 186, 47, 0.6);
+}
+
+.btn-action {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    color: white;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+}
+
+.btn-action:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+/* Main Content */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin: 0 20px;
+}
+
+#wallet-info {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0,0,0,0.3);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--success-color);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 8px var(--success-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Steps */
+.step-section {
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.step-section:hover {
+    border-color: rgba(255,255,255,0.1);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.step-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.1);
+    margin-right: 15px;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 18px;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.step-desc {
+    font-size: 13px;
+    color: var(--secondary-text);
+    margin-bottom: 15px;
+    margin-left: 0;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--secondary-text);
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.info-badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--primary-color);
+    border: 1px solid rgba(243, 186, 47, 0.3);
+}
+
+/* Status Log */
+.status-log {
+    margin: 20px;
+    font-size: 13px;
+    color: var(--secondary-text);
+    text-align: center;
+    min-height: 20px;
+}
+
+.log-success { color: var(--success-color); }
+.log-error { color: var(--accent-color); }
+.log-loading { color: var(--primary-color); }
+
+/* Footer */
+.app-footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.author-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.author-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.author-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--primary-color);
+}
+
+.author-name {
+    color: var(--secondary-text);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.author-link:hover .author-name {
+    color: var(--text-color);
+}
+
+@media (max-width: 600px) {
+    .banner-container { height: 120px; }
+    .header-content { margin-top: -40px; flex-direction: column; align-items: flex-start; }
+    .btn-primary { margin-top: 10px; align-self: flex-end; }
+    h1 { font-size: 20px; margin-top: 10px; }
+    .logo-img { width: 80px; height: 80px; }
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #1e293b;
+    width: 90%;
+    max-width: 400px;
+    padding: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    animation: modalSlideIn 0.3s ease-out;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
+}
+
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    color: white;
+}
+
+.close-modal {
+    color: #94a3b8;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: white;
+}
+
+.wallet-list {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.wallet-option {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.wallet-option:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.wallet-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wallet-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.wallet-option span {
+    font-weight: 600;
+    font-size: 16px;
+}
